@@ -1,4 +1,31 @@
 return {
+  {
+    "ThePrimeagen/refactoring.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require "custom.configs.refactoring"
+    end,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
+  },
   { "christoomey/vim-tmux-navigator", lazy = false, config = function() end },
   {
     "nvimdev/dashboard-nvim",
@@ -7,13 +34,6 @@ return {
       require "custom.configs.dashboard"
     end,
     requires = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
-    "sindrets/diffview.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.diffview"
-    end,
   },
   {
     "preservim/tagbar",
@@ -105,7 +125,6 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
   },
@@ -115,12 +134,16 @@ return {
     opts = {
       ensure_installed = {
         "lua-language-server",
-        "htmllsp",
         "stylua",
-        "js-debug-adapter",
+
+        "html-lsp",
+        "css-lsp",
         "prettier",
+        "js-debug-adapter",
         "eslint-lsp",
         "typescript-language-server",
+
+        "sourcery",
         "debugpy",
         "ruff-lsp",
         "black",

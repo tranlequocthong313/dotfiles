@@ -41,9 +41,31 @@ lspconfig.pyright.setup {
   },
 }
 
+lspconfig.html.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "html" },
+}
+
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "css", "scss", "sass" },
+}
+
 lspconfig.ruff_lsp.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = { "python" },
+}
+
+lspconfig.sourcery.setup {
+  init_options = {
+    token = "user_Mx0ZPSdGLQF0tvOea8_5zWqHkFt6Bg4vgh2MQmfSQ7O9XeHpQDXxmJWj9kM",
+    extension_version = "vim.lsp",
+    editor_version = "vim",
+  },
 }

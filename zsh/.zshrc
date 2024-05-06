@@ -111,3 +111,4 @@ alias vim=nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
+

@@ -16,5 +16,4 @@ map("n", "<leader>Y", [["+Y]])
 
 map("i", "jj", "<ESC>")
 
-
---
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
