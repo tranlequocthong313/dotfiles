@@ -1,14 +1,11 @@
 return {
   {
     "ThePrimeagen/refactoring.nvim",
-    lazy = false,
-    dependencies = {
+    dependenciee = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require "custom.configs.refactoring"
-    end,
+    ft = { "python", "javascript", "typescript" },
   },
   {
     "kdheepak/lazygit.nvim",
@@ -26,56 +23,57 @@ return {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
-  { "christoomey/vim-tmux-navigator", lazy = false, config = function() end },
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
   {
     "nvimdev/dashboard-nvim",
-    event = "VimEnter",
     config = function()
       require "custom.configs.dashboard"
     end,
+    event = "VimEnter",
     requires = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "preservim/tagbar",
-    event = "VeryLazy",
     config = function()
       require "custom.configs.tagbar"
     end,
+    keys = {
+      { "<leader>tt", "<CMD>TagbarToggle<CR>", desc = "Tagbar Toggle" },
+    },
   },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    -- lazy = false,
-    event = "VeryLazy",
     opts = function()
       require "custom.configs.todo-comments"
     end,
+    event = "VimEnter",
   },
   {
     "mbbill/undotree",
-    -- lazy = false,
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.undotree"
-    end,
+    keys = {
+      { "<leader>u", "<CMD>UndotreeToggle<CR>", desc = "Undotree Toggle" },
+    },
   },
   {
     "mhartington/formatter.nvim",
-    event = "VeryLazy",
     opts = function()
       require "custom.configs.formatter"
     end,
+    ft = { "python", "javascript", "typescript", "html", "css", "lua" },
   },
   {
     "mfussenegger/nvim-lint",
-    event = "VeryLazy",
     config = function()
       require "custom.configs.lint"
     end,
+    ft = { "python", "javascript", "typescript", "html", "css", "lua" },
   },
   {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
       require "custom.configs.dap.ui"
@@ -102,7 +100,7 @@ return {
   },
   {
     "nvimtools/none-ls.nvim",
-    ft = { "python" },
+    ft = { "python", "javascript", "typescript", "html", "css", "lua" },
     opts = function()
       require "custom.configs.null-ls"
     end,
@@ -116,7 +114,7 @@ return {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = { "python" },
+    ft = { "python", "javascript", "typescript", "html", "css", "lua" },
     opts = function()
       require "custom.configs.null-ls"
     end,
@@ -168,14 +166,5 @@ return {
         "python",
       },
     },
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.6",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require "custom.configs.telescope"
-    end,
   },
 }
