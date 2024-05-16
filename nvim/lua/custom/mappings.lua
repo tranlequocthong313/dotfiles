@@ -30,6 +30,23 @@ map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move highlighted blocks go up" })
 -- TODO-COMMENT --
 map("n", "<leader>ft", "<CMD>TodoTelescope<CR>", { desc = "Todo Telescope" })
 
+-- SILICON --
+map("v", "<leader>cs", ":Silicon<CR>", { desc = "Code Snap" })
+
+-- CMDLINE --
+-- map("n", ":", "<cmd>FineCmdline<CR>", { desc = "CmdLine" })
+
+-- TABUFLINE --
+-- local function moveLeft()
+--     require("nvchad.tabufline").move_buf(-1)
+-- end
+-- local function moveRight()
+--     require("nvchad.tabufline").move_buf(1)
+-- end
+-- map("n", "<M-j>", moveLeft, { desc = "Move buffer to left" })
+-- map("n", "<M-l>", moveRight, { desc = "Move buffer to right" })
+map("n", "<leader>xz", require("nvchad.tabufline").closeAllBufs, { desc = "Close all buffers" })
+
 -- NON PLUGIN --
 map("n", "<C-d>", "<C-d>zz", { desc = "Jump down half of the file and vertical center" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Jump up half of the file and vertical center" })
@@ -41,8 +58,14 @@ map("x", "<leader>p", [["_dP]], { desc = "Paste without replace current text" })
 map("i", "jj", "<ESC>", { desc = "Back to normal mode" })
 
 map(
-  "n",
-  "<leader>s",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Change all similiar texts same as current text" }
+    "n",
+    "<leader>s",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Change all similiar texts same as current text" }
 )
+
+-- for i = 1, 9, 1 do
+--   vim.keymap.set("n", string.format("<A-%s>", i), function()
+--     vim.api.nvim_set_current_buf(vim.t.bufs[i])
+--   end)
+-- end
