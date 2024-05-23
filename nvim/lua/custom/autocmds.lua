@@ -1,10 +1,32 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- autocmd("VimEnter", {
---   callback = function()
---     vim.cmd "Dashboard"
---   end,
--- })
+local function set_colorcolumn()
+    local ft = vim.bo.filetype
+    if ft == "python" then
+        vim.opt.colorcolumn = "88"
+    elseif ft == "javascript" or ft == "javascriptreact" or ft == "typescript" or ft == "typescriptreact" then
+        vim.opt.colorcolumn = "120"
+    else
+        vim.opt.colorcolumn = "0"
+    end
+end
+
+autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = "*",
+    callback = set_colorcolumn,
+})
+
+autocmd("VimEnter", {
+    callback = function()
+        -- vim.cmd "Dashboard"
+
+        for i = 1, 9, 1 do
+            vim.keymap.set("n", string.format("<A-%s>", i), function()
+                vim.api.nvim_set_current_buf(vim.t.bufs[i])
+            end)
+        end
+    end,
+})
 
 -- autocmd("BufReadPost", {
 --   pattern = "*",

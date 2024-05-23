@@ -1,8 +1,31 @@
 return {
     {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = true,
+        "alanfortlink/blackjack.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        cmd = "BlackJackNewGame",
+        config = function()
+            require("blackjack").setup {
+                card_style = "large",
+                suit_style = "black",
+            }
+        end,
+    },
+    {
+        "jim-fx/sudoku.nvim",
+        cmd = "Sudoku",
+        config = function()
+            require("sudoku").setup {}
+        end,
+    },
+    {
+        "zyedidia/vim-snake",
+        lazy = true,
+        cmd = "Snake",
+    },
+    {
+        "alec-gibson/nvim-tetris",
+        lazy = true,
+        cmd = "Tetris",
     },
     {
         "hrsh7th/nvim-cmp",
@@ -174,6 +197,8 @@ return {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
+                "bash-language-server",
+
                 "clangd",
                 "clang-format",
                 "codelldb",
@@ -242,5 +267,10 @@ return {
         config = function()
             require "custom.configs.telescope"
         end,
+    },
+
+    {
+        "folke/which-key.nvim",
+        enabled = false,
     },
 }

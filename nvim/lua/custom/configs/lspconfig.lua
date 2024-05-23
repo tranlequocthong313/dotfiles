@@ -13,6 +13,9 @@ local function organize_imports()
 end
 
 local servers = {
+    bashls = {
+        filetypes = { "sh", "zsh" },
+    },
     html = {
         filetypes = { "html" },
     },

@@ -37,14 +37,14 @@ map("v", "<leader>cs", ":Silicon<CR>", { desc = "Code Snap" })
 -- map("n", ":", "<cmd>FineCmdline<CR>", { desc = "CmdLine" })
 
 -- TABUFLINE --
--- local function moveLeft()
---     require("nvchad.tabufline").move_buf(-1)
--- end
--- local function moveRight()
---     require("nvchad.tabufline").move_buf(1)
--- end
--- map("n", "<M-j>", moveLeft, { desc = "Move buffer to left" })
--- map("n", "<M-l>", moveRight, { desc = "Move buffer to right" })
+local function moveLeft()
+    require("nvchad.tabufline").move_buf(-1)
+end
+local function moveRight()
+    require("nvchad.tabufline").move_buf(1)
+end
+map("n", "<M-j>", moveLeft, { desc = "Move buffer to left" })
+map("n", "<M-l>", moveRight, { desc = "Move buffer to right" })
 map("n", "<leader>xz", require("nvchad.tabufline").closeAllBufs, { desc = "Close all buffers" })
 
 -- NON PLUGIN --
