@@ -128,3 +128,5 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
+
+alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
