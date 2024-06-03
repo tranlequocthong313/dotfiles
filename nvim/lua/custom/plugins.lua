@@ -247,6 +247,7 @@ return {
                 "typescript",
                 "tsx",
                 "python",
+                "c_sharp",
             },
         },
         config = {
@@ -255,7 +256,6 @@ return {
                 enable_rename = true,
                 enable_close = true,
                 enable_close_on_slash = true,
-                filetypes = { "html", "javascript", "jsx", "tsx", "typescript", "vue" },
             },
         },
     },
