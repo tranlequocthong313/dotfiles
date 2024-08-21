@@ -248,6 +248,7 @@ return {
                 "tsx",
                 "python",
                 "c_sharp",
+                "java",
             },
         },
         config = {
